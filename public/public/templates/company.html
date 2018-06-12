@@ -1,0 +1,26 @@
+<div class="container" >
+	<header>
+        <h2>Company List </h2>
+		<div> 
+			<a ui-sref="com-add" title="Add Company"><button class="pull-right btn bg-color-blueLight"> Add New Company</button> </a>
+		</div>
+    </header>
+	<table class = "table">
+		<thead>
+			<tr>
+				<th>Name</th>
+				<th>Action</th>
+				<th>&nbsp </th>
+				<th>&nbsp </th>
+			</tr>
+		</thead>
+		<tbody>
+			<tr ng-repeat = "com in com">
+				<td>{{com.name}}</td>
+				<td><button class="btn btn-danger" ng-click= "remove(com._id)">Delete</td>
+				<td><button class="btn btn-warning" ng-click= "details(com._id)">Details</td>
+			</tr>
+		</tbody>
+	</table>
+	<button type="button" class="btn btn-default pull-right" ng-click="back();">Back</button> 
+</div>

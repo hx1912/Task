@@ -1,0 +1,63 @@
+<div class="container" class="center-block">
+	<article class="col-sm-4">
+		<div class="row">
+			<div class="col-xs-12 col-sm-12 col-md-12 col-lg-12 ">
+				<header>                        
+					<h1>{{com.name}}</h1>
+				</header>
+				<br/>
+				<form class="m-t" role="form" action="#">
+					<div class="form-group">
+						<label class="control-label " class="text-center">{{com.city}}</label>      
+					</div>
+					<div class="form-group">
+						<label class=" control-label ">{{com.number}}
+						</label>                   
+					</div>				
+					<button type="button" class="btn btn-primary " ng-click="edit(com._id);">Edit</button>
+					<button type="button" class="btn btn-primary " ng-click="pass(com._id);">View Pass Rate</button>				
+				</form>
+			</div>
+		</div>
+	</article>
+	<article class="col-sm-8">
+		<div class="row">
+			<div class="col-xs-12 col-sm-12 col-md-12 col-lg-12">
+				<header>  
+					<br/>		
+					<div> 
+						<a title="Add Employee"><button class="pull-right btn bg-color-blueLight" ng-click="addemp(com._id)"> Add New Employee</button> </a>
+					</div>				   
+					<h3>Employees </h3>	 
+				</header>					
+				<br/>
+				<form>
+					<div class="form-group">
+						<div class="input-group">
+							<div class="input-group-addon"><i class="fa fa-search"></i></div>
+							<input type="text" class="form-control" placeholder="Search by Name" ng-model="search">
+						</div>      
+					</div>
+				</form>
+				<table class = "table">
+					<thead>
+						<tr>
+							<th>Name</th>
+							<th>Action</th>
+							<th>&nbsp </th>
+							<th>&nbsp </th>
+						</tr>
+					</thead>
+					<tbody>
+						<tr ng-repeat = "emp in emp | tableFilter:search">
+							<td>{{emp.firstname}} {{emp.lastname}}</td>
+							<td><button class="btn btn-danger" ng-click= "empremove(emp._id)">Delete</td>
+							<td><button class="btn btn-warning" ng-click= "empdetails(emp._id)">Details</td>
+						</tr>
+					</tbody>
+				</table>         
+			</div>
+		</div>
+	</article>
+	<button type="button" class="btn btn-default pull-right" ng-click="back();">Back</button> 
+</div>

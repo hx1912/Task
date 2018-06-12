@@ -1,0 +1,55 @@
+<div class="container" >
+	<div class="center-block">
+		<header>                        
+			<h2>Add Company </h2>
+		</header>					
+		<br/>
+        <form class="m-t" role="form" action="#" name = "myForm" novalidate >
+            <div class="form-group">
+				<label class=" control-label ">Name</label>
+                <input ng-model="com.name" type="text" class="form-control" required>
+            </div>
+            <div class="form-group">
+				<label class=" control-label ">City</label>
+                <input ng-model="com.city" type="text" class="form-control"  required>
+            </div>
+			<div class="form-group">
+				<label class=" control-label ">Contact</label>
+                <input ng-model="com.number" type="text" class="form-control" required>
+            </div>
+            <button type="button" class="btn btn-primary" ng-disabled="myForm.$pristine ||myForm.$invalid" ng-click= "addCom()">Add</button>
+			<button type="button" class="btn btn-default pull-right " ng-click="back();">Back</button>
+			<button type="button" class="btn btn-default pull-right " ng-click="clear();">Clear</button>       
+        </form>
+	</div>
+</div>
+<div id="myModal" class="modal fade" id="exampleModalCenter" tabindex="-1" role="dialog" aria-labelledby="exampleModalCenterTitle" aria-hidden="true">
+  <div class="modal-dialog modal-dialog-centered" role="document">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h2 class="modal-title" id="exampleModalLongTitle">Success</h2>
+      </div>
+      <div class="modal-body">
+       New Company Added!
+      </div>
+      <div class="modal-footer">
+        <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
+      </div>
+    </div>
+  </div>
+</div>
+<div id="myModalfail" class="modal fade" id="exampleModalCenter" tabindex="-1" role="dialog" aria-labelledby="exampleModalCenterTitle" aria-hidden="true">
+  <div class="modal-dialog modal-dialog-centered" role="document">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h2 class="modal-title" id="exampleModalLongTitle">Error</h2>
+      </div>
+      <div class="modal-body">
+      Company with same name exists!
+      </div>
+      <div class="modal-footer">
+        <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
+      </div>
+    </div>
+  </div>
+</div>

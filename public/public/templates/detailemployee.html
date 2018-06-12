@@ -1,0 +1,63 @@
+<div class="container" class="center-block">
+	<article class="col-sm-4">
+		<div class="row">
+			<div class="col-xs-12 col-sm-12 col-md-12 col-lg-12 ">
+				<header>                        
+					<h1>{{emp.firstname}} {{emp.lastname}}</h1>
+				</header>					
+				<br/>
+				<form class="m-t" role="form" action="#">
+					<div class="form-group">
+					   <label class="control-label " class="text-center">{{emp.city}}</label>                    
+					</div>
+					<div class="form-group">
+						<label class=" control-label ">{{emp.number}}</label>
+					</div>				
+					<button type="button" class="btn btn-primary " ng-click="editemp(emp._id);">Edit</button>				
+				</form>		
+			</div>
+			<div>			
+				Employee of: </br><button  class="btn btn-link" ng-click= "details(com._id)">{{com.name}}</button>
+			</div>
+		</div>
+	</article>
+	<article class="col-sm-8 ">
+		<div class="row">										
+			<div class="col-xs-12 col-sm-12 col-md-12 col-lg-12">
+				<header>  
+					<br/>				   
+					<h3>Tests </h3>	
+				</header>
+				<div> 
+					<a title="Add Test"><button class="pull-right btn bg-color-blueLight" ng-click="addtst(emp._id)"> Add New Test</button> </a>
+				</div>				
+				<br/> 
+				<table class = "table">
+					<thead>
+						<tr>
+							<th><a ng-click="sortType = 'tst.createdOn'; sortReverse = !sortReverse">
+								Date 
+								<span ng-show="sortType == 'tst.createdOn' && !sortReverse" class="fa fa-caret-down"></span>
+								<span ng-show="sortType == 'tst.createdOn' && sortReverse" class="fa fa-caret-up"></span></a>
+							</th>
+							<th>Name</th> 							   
+							<th>Result</th>
+							<th>&nbsp </th>
+							<th>&nbsp </th>
+						</tr>
+					</thead>
+					<tbody>
+						<tr ng-repeat = "tst in tst  | orderBy:sortType:sortReverse">
+							<td>{{ tst.createdOn | date}}</td>
+							<td>{{tst.name}}</td>
+							<td>{{tst.result}}</td>
+							<td><button class="btn btn-danger" ng-click= "tstremove(tst._id)">Delete</td>
+							<td><button class="btn btn-info" ng-click= "tstchange(tst._id,tst.result)">Change Result</td>
+						</tr>
+					</tbody>
+				</table>         
+			</div>
+		</div>
+	</article> 
+	<button type="button" class="btn btn-default pull-right" ng-click="back();">Back</button> 
+</div>
